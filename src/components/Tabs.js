@@ -3,16 +3,21 @@ import React ,{useState} from "react";
 
 
 const Tabs = ({tabsprop}) =>{
-    const [des , setDes] = React.useState("")
+    const [des , setDes] = useState(tabsprop[0])
 return (
     
     <div>
         <ul>
         {tabsprop.map((tab)=>(
-         <li onClick={()=>{setDes(tab.des)}}>{tab.title}</li>
+         <li onClick={()=>setDes(tab)}>{tab.title}</li>
         ))}
     </ul>
-    <p>{des}</p>
+    <div>
+        {
+            des && <p>{des.content}</p>
+        }
+    
+    </div>
     </div>
 )
 }
